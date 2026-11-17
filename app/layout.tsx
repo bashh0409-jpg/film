@@ -1,6 +1,16 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ReactLenis } from "lenis/react";
+import "lenis/dist/lenis.css";
 import "./globals.css";
+
+const badeenDisplay = localFont({
+  src: "./fonts/BadeenDisplay.ttf",
+  variable: "--font-badeen-display-font",
+  weight: "400",
+  display: "swap",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,9 +31,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${badeenDisplay.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full tracking-tight flex flex-col">
+        <ReactLenis root options={{ autoRaf: true, lerp: 0.1 }}>
+          {children}
+        </ReactLenis>
+      </body>
     </html>
   );
 }

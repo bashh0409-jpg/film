@@ -20,6 +20,21 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## TMDB API
+
+Create a TMDB API Read Access Token in your TMDB account settings and add it to `.env.local`:
+
+```env
+TMDB_API_READ_ACCESS_TOKEN=your_read_access_token
+```
+
+The server-side endpoints are:
+
+- `GET /api/tmdb/search?query=Chase` — search movies and get their TMDB IDs.
+- `GET /api/tmdb/logos?movieId=123` — get English or language-neutral logo image URLs for a movie.
+
+The token stays on the server. When displaying TMDB data or images, follow [TMDB's API terms](https://www.themoviedb.org/api-terms-of-use) and required attribution.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
