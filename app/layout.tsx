@@ -33,6 +33,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${badeenDisplay.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+       <meta name="google-adsense-account" content="ca-pub-8778681612531498"/>
+      </head>
       <body className="min-h-full tracking-tight flex flex-col">
         <ReactLenis root options={{ autoRaf: true, lerp: 0.1 }}>
           {children}
